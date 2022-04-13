@@ -24,17 +24,20 @@ public class MainActivity extends AppCompatActivity {
         try {
         EditText editTextNumber = (EditText) findViewById(R.id.editTextNumber);
         int guessedNumber = Integer.parseInt(editTextNumber.getText().toString());
-            if (guessedNumber < 1 && guessedNumber > 20){
-                message = "Input number 1 - 20";
+            if (guessedNumber < 1){
+                message = "Guess a number between 1 and 20";
+            }
+            else if (guessedNumber > 20){
+                message = "Guess a number between 1 and 20";
             }
             else if (guessedNumber < randomNumber) {
-                message = "Higher !!";
+                message = "Your guess is too Low ! Guess Higher !!";
             }
             else if (guessedNumber > randomNumber) {
-                message = "Lower!!";
+                message = "Your guess is to High ! Guess Lower!!";
             }
             else {
-                message = "You got me!!";
+                message = "Your guess is correct. Congratulations !!";
                 randomNumberGenerator();
             }
         }catch (Exception e){
@@ -42,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         }finally {
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
         }
-
     }
 
     @Override
